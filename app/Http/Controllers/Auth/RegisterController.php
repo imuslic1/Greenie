@@ -4,20 +4,25 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
+use App\Repositories\CompanyRepository;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
     private $userRepository;
+    private $companyRepository;
 
-    public function __construct(UserRepository $userRepository) {
+    public function __construct(UserRepository $userRepository,
+                                CompanyRepository $companyRepository,) {
         // $this->middleware(['guest']);
         $this->userRepository = $userRepository;
+        $this->companyRepository = $companyRepository;
     }
 
     public function index()
     {
-        return view('auth.register');
+        $companies = $this->companyRepository->getAllCompanies();
+        return view('auth.register', ['companies' => $companies]);
     }
 
     public function store(Request $request)
