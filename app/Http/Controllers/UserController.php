@@ -28,13 +28,12 @@ class UserController extends Controller
 
     public function index(User $user)
     {
-        $balance = $user->balance;
-        $transactions = $user->transactions;
-
-        $connections = $this->connectionRepository->getConnectionsByUserId($user->id);
+        $connections = $this->connectionRepository->getAcceptedConnectionsByUserId($user->id);
         foreach ($connections as $key=>$connection) {
             $connections[$key] = $this->userRepository->getUserById($connection->user_id);
         }
+
+        $pendingConnections = $this->connectionRepository->getPendingConnectionsByUserId($user->id);
 
         $todaysAmount = $this->transactionRepository->getTodaysAmountByUserId($user->id);
 
@@ -48,6 +47,6 @@ class UserController extends Controller
         $trend = 100 * $thisWeek / $lastWeek;
         
 
-        return view('account_page', compact('user', 'connections', 'todaysAmount', 'trend'));
+        return view('account_page', compact('user', 'connections', 'todaysAmount', 'trend', 'pendingConnections'));
     }
 }
