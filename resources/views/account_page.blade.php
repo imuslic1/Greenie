@@ -31,7 +31,11 @@
                 <div class="row g-2 h-75">
                     <div class="col text-center d-flex flex-column justify-content-center">
                         <div class="d-flex justify-content-center">
-                            <img src="{{ $trend > 0 ? asset('images/trend-up.png') : asset('images/trend-down.png') }}" alt="Lit!" style="max-width: 50px; padding: 3%">
+                            @if ($trend > 0)
+                                <img src="{{ asset('images/trend-up.png') }}" alt="Lit!" style="max-width: 50px; padding: 3%">
+                            @elseif ($trend < 0)
+                                <img src="{{ asset('images/trend-down.png') }}" alt="Lit!" style="max-width: 50px; padding: 3%">    
+                            @endif
                         </div>
                         <h2 style="color: {{ $trend > 0 ? 'green' : ($trend < 0 ? 'red' : 'black') }};">{{ $trend . '%' }}</h2>
                         <p>This week's trend</p>
@@ -93,8 +97,8 @@
             @else
                 <div class="col border border-2 rounded p-3">
                     <h2 class="text-center h-25">Recent Transactions</h2>
-                    <table class="table table-bordered text-center">
-                        <thead class="position-sticky top-0 bg-light">
+                    <table class="table transakcije-tabela">
+                        <thead>
                             <tr>
                                 <th>Partner</th>
                                 <th>Amount</th>

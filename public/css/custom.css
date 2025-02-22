@@ -64,3 +64,22 @@
 .dugme:hover {
     background-color: #638B73;
 }
+
+.transakcije-tabela {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.transakcije-tabela th, 
+.transakcije-tabela td {
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px;
+}
+
+/* Remove border from the first row */
+.transakcije-tabela thead th {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
