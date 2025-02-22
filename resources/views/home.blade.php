@@ -1,9 +1,9 @@
 @extends('layouts.base')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" style="max-width: 1024px">
         <div class="row">
             @foreach ($partners as $partner)
-                <div class="col-md-4">
+                <div class="col-md-4 p-1">
                     <div class="card h-100 card-background">
                         @if ($partner->logo)
                             <img src="{{ asset('storage/' . $partner->logo) }}" class="card-img-top"
