@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
-
 Route::get('/users/{user:slug}', [UserController::class, 'index'])->name('users.index');
+
+Route::get('/account', function () {
+    return view('account_page');
+});
+
+Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
