@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Log;
 
 class TransactionRepository
 {
@@ -25,7 +26,7 @@ class TransactionRepository
         $amount = Transaction::where('user_id', $userId)
             ->whereBetween('created_at', [$from, $to])
             ->sum('amount');
-
+        Log::info("User: $userId Amount: $amount");
         return $amount;
     }
 
