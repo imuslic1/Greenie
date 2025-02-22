@@ -42,4 +42,18 @@ class UserRepository
             ->take(10)
             ->get();
     }
+
+    public function addUser($name, $email, $password, $slug, $companyId) {
+        return User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt($password),
+            'slug' => $slug,
+            'company_id' => $companyId,
+        ]);
+    }
+
+    public function checkIfSlugExists($slug) {
+        return User::where('slug', $slug)->exists();
+    }
 }
