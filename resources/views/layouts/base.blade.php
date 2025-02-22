@@ -57,12 +57,12 @@
             </nav>
     </header>
 
-    <main>
+    <main class="mb-3" style="min-height: 78vh;">
         @yield('content')
     </main>
 
-    <footer class="main-footer bg-dark text-light py-3 mt-4">
-        <div class="container">
+    <footer class="main-footer bg-dark text-light py-3 mx-auto" style="max-width: 1048px;">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <nav>
