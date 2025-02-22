@@ -27,10 +27,10 @@
                     {{-- @auth     --}}
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Home</a>
+                                <a class="nav-link text-light" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Account</a>
+                                <a class="nav-link text-light" href="#">My Account</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="{{ route('leaderboards.index') }}">Leaderboards</a>
