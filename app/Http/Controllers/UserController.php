@@ -46,7 +46,8 @@ class UserController extends Controller
         $lastWeek = $this->transactionRepository->getTimedAmountByUserId($user->id, $twoWeeksAgo, $sevenDaysAgo);
         $lastWeek = $lastWeek === 0 ? 1 : $lastWeek;
         $trend = 100 * $thisWeek / $lastWeek;
+        
 
-        return view('users.index', compact('user', 'balance', 'transactions', 'connections', 'todaysAmount', 'trend'));
+        return view('account_page', compact('user', 'connections', 'todaysAmount', 'trend'));
     }
 }
