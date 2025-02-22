@@ -85,7 +85,43 @@
                             </tbody>
                         </table>
                     @endif
-
+                    @if ($pendingConnections->isEmpty())
+                        <h2 class="text-center h-25">Pending Connections</h2>
+                        <p class="opacity-50">No connections to show.</p>
+                    @else
+                        <table class="table table-borderless text-center">
+                            <thead>
+                                <tr>
+                                    <th colspan="3"><h2 class="text-center h-25">Pending Connections</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pendingConnections as $connection)
+                                    <tr>
+                                        <td>
+                                            <a href="/users/{{ $connection->user1->slug }}"
+                                                class="text-decoration-none darken-hover">
+                                                {{ $connection->user1->name }}</a>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('connection', ['connection' => $connection]) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="accepted" value="1">
+                                                <button type="submit" class="btn btn-sm btn-success">Accept</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('connection', ['connection' => $connection]) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="accepted" value="0">
+                                                <button type="submit" class="btn btn-sm btn-danger">Decline</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
             </div>
 
