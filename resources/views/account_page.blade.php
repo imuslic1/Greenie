@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="m-4 mx-5" >
+    <div class="container mt-5 mx-auto">
 
         <div class="row border border-2 rounded p-3">
             <div class="col-auto text-center" style="min-width: 300px; min-height: 200px; color: #112F33;">
