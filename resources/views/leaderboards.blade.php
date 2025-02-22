@@ -1,4 +1,7 @@
 @extends('layouts.base')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+@endpush
 @section('content')
 
 <div class="container mt-5">
