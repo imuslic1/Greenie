@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LeaderboardsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -18,3 +19,6 @@ Route::get('/account', function () {
 Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
