@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'slug',
         'company_id',
+        'utype',
     ];
 
     /**
