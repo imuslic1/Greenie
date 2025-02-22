@@ -63,13 +63,13 @@
             <div class="col-auto border border-2 rounded p-3" style="min-width: 300px; min-height: 200px; margin-right: 15px;">
                 <div>
                     @if ($connections->isEmpty())
-                        <h2 class="text-center h-25">My Connections</h2>
+                        <h2 class="text-center h-25">Connections</h2>
                         <p class="opacity-50">No connections to show.</p>
                     @else
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th><h2 class="text-center h-25">My Connections</h2></th>
+                                    <th><h2 class="text-center h-25">Connections</h2></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -125,33 +125,36 @@
                 </div>
             </div>
 
-            @if ($user->transactions->isEmpty())
-                <div class="col border border-2 rounded p-3">
-                    <h2 class="text-center h-25">Recent Transactions</h2>
-                    <p class="opacity-50">No recent transactions.</p>
-                </div>
-            @else
-                <div class="col border border-2 rounded p-3">
-                    <h2 class="text-center h-25">Recent Transactions</h2>
-                    <table class="table transakcije-tabela">
-                        <thead>
-                            <tr>
-                                <th>Partner</th>
-                                <th>Amount</th>
-                                <th>Date & time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($user->transactions as $transaction)
+           
+            @if (Auth::user()->id == $user->id)
+                @if ($user->transactions->isEmpty())
+                    <div class="col border border-2 rounded p-3">
+                        <h2 class="text-center h-25">Recent Transactions</h2>
+                        <p class="opacity-50">No recent transactions.</p>
+                    </div>      
+                @else   
+                    <div class="col border border-2 rounded p-3">
+                        <h2 class="text-center h-25">Recent Transactions</h2>
+                        <table class="table transakcije-tabela">
+                            <thead>
                                 <tr>
-                                    <td>{{ $transaction->partner->name }}</td> <!-- Dodati link na stranicu partnera -->
-                                    <td>{{ $transaction->amount }}</td>
-                                    <td>{{ $transaction->updated_at }}</td>
+                                    <th>Partner</th>
+                                    <th>Amount</th>
+                                    <th>Date & time</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                @foreach ($user->transactions as $transaction)
+                                    <tr>
+                                        <td>{{ $transaction->partner->name }}</td> <!-- Dodati link na stranicu partnera -->
+                                        <td>{{ $transaction->amount }}</td>
+                                        <td>{{ $transaction->updated_at }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
             @endif
 
         </div>
