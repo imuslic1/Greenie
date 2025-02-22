@@ -17,7 +17,7 @@ Route::get('/users/{user:slug}', [UserController::class, 'index'])->name('users.
 
 Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
 
-Route::get('/offers/{offer}', [OfferController::class, 'index'])->name('offers');
+Route::get('/offers/{partner}', [OfferController::class, 'index'])->name('offers');
 Route::post('/offers/{offer}', [OfferController::class, 'store'])->name('offers');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Offer;
+use App\Models\Partner;
 use App\Repositories\ReferralCodeRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -17,8 +18,8 @@ class OfferController extends Controller
         $this->referralCodeRepository = $referralCodeRepository;
     }
 
-    public function index(Offer $offer) {
-        return view('offers.index', compact('offer'));
+    public function index(Partner $partner) {
+        return view('offers.index', compact('partner'));
     }
 
     public function store(Offer $offer, Request $request) {
