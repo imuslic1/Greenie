@@ -4,11 +4,10 @@
 @endpush
 @section('content')
 
-    <h1 class="view-title">Login</h1>
 
 
-    <div class="justify-content-center" style="padding-top: 100px">
-
+    <div class="bg-canvas justify-content-center" style="padding-top: 100px; min-height: 100vh;">
+        <h1 class="mt-5 text-center" style="color: #112F33">Login</h2>
         @if (session('status'))
             <div class="alert alert-danger">
                     {{ session('status') }}
@@ -21,7 +20,7 @@
 
             <div class="row mx-auto my-3" style="width: 300px;">
                 <div class="col-25">
-                <label for="email">Email</label></div>
+                <label for="email" style="color: #112F33">Email</label></div>
 
                 <div class="col-75">
                     <input id="email" value="{{ old('email') }}" type="text" class="form-control @error('email') is-invalid @enderror" name="email">
@@ -36,7 +35,7 @@
 
             <div class="row mx-auto my-3" style="width: 300px;">
                 <div class="col-25">
-                <label for="password">Password</label></div>
+                <label for="password" style="color: #112F33">Password</label></div>
 
                 <div class="col-75">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">

@@ -15,7 +15,7 @@
     @stack('styles')
 </head>
 
-<body>
+<body class="d-flex flex-column vh-100">
     <header class="main-header">
         <div class="container-fluid px-0 justify-content-center">
             <nav class="navbar navbar-expand-md" style="background-color: #94D4AE">
@@ -74,11 +74,11 @@
         </div>
     </header>
 
-    <main class="mb-3" style="min-height: 78vh;">
+    <main class="flex-grow-1" >
         @yield('content')
     </main>
 
-    <footer class="main-footer text-light py-3 mx-auto" style="background-color: #112F33">
+    <footer class="main-footer text-light py-3 mx-auto vw-100" style="background-color: #112F33">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
