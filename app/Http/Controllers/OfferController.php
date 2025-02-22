@@ -19,7 +19,10 @@ class OfferController extends Controller
     }
 
     public function index(Partner $partner) {
-        return view('offers', compact('partner'));
+        $user = auth()->user();
+        $userCodes = $this->referralCodeRepository->getReferralCodesByPartnerAndUser($partner->id, $user->id);
+
+        return view('offers', compact('partner', 'userCodes'));
     }
 
     public function store(Offer $offer, Request $request) {
