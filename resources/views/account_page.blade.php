@@ -31,5 +31,33 @@
                 </div>
             </div>
 
+            <div class="row g-2 mt-4">
+                <div class="col-12">
+                    <table class="table table-bordered text-center">
+                        <thead class="position-sticky top-0 bg-light">
+                            <tr>
+                                <th>Partner</th>
+                                <th>Amount</th>
+                                <th>Date & time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data 1</td>
+                                <td>Data 2</td>
+                                <td>Data 3</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>Data 1</td>
+                                <td>Data 2</td>
+                                <td>Data 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     @endsection
