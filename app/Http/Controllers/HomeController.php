@@ -19,6 +19,16 @@ class HomeController extends Controller
     {
         $partners = $this->partnerRepository->getAllPartners();
 
+        foreach ($partners as $partner) {
+            $hasActive = false;
+            foreach ($partner->offers as $offer) {
+                if ($offer->active) {
+                    $hasActive = true;
+                    break;
+                }
+            }
+            $partner->openOffers = $hasActive;
+        }
         return view('home', compact('partners'));
     }
 }
