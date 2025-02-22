@@ -16,6 +16,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/users/{user:slug}', [UserController::class, 'index'])->name('users.index');
 
+
 Route::post('/connection/{connection}', [ConnectionController::class, 'store'])->name('connection');
 
 Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');

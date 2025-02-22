@@ -14,6 +14,7 @@
                                     <th onclick="sortTable(1)" style="cursor:pointer;">Tokens needed</th>
                                     <th onclick="sortTable(2)" style="cursor:pointer;">Discount (%)</th>
                                     <th onclick="sortTable(3)" style="cursor:pointer;">Active</th>
+                                    <th onclick="sortTable(4)" style="cursor:pointer;">Referral Code</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -33,18 +34,24 @@
 
                                         </td>
                                         <td>
-                                            @if ($offer->active)
-                                                <form action="/admin/toggle/offer/{{ $offer->id }}" method="POST"
+                                            @if ($userCodes->contains('offer_id', $offer->id))
+                                                {{ $userCodes->where('offer_id', $offer->id)->first()->code }}
+                                            @else
+                                                <img src="{{ asset('images/not-generated.png') }}" alt="Active" width="20px">
+                                            
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if (!$userCodes->contains('offer_id', $offer->id))
+                                                <form action="{{ route('offers.store', ['offer' => $offer->id]) }}" method="POST"
                                                     style="display:inline;">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-secondary">Deactivate</button>
+                                                    <button type="submit" class="btn btn-secondary">Generate code</button>
                                                 </form>
                                             @else
-                                                <form action="/admin/toggle/offer/{{ $offer->id }}" method="POST"
-                                                    style="display:inline;">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-success">Activate</button>
-                                                </form>
+                                                Code generated
+                                            <!--TREBA GA GREY OUTATI DA SE NE KLIKA-->
+                                               
                                             @endif
                                         </td>
                                     </tr>

@@ -36,6 +36,6 @@ class OfferController extends Controller
         }
         $referralCode = $this->referralCodeRepository->addReferralCode($user->id, $partner->id, $offer->id, $code);
 
-        return redirect()->route('offers', $offer);
+        return redirect()->back();
     }
 }
