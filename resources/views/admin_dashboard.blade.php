@@ -7,13 +7,13 @@
             <h2 class="mb-3">Offers</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table transakcije-tabela table-hover">
                         <thead>
                             <tr>
                                 <th onclick="sortTable(0)" style="cursor:pointer;">Partner</th>
                                 <th onclick="sortTable(1)" style="cursor:pointer;">Tokens needed</th>
                                 <th onclick="sortTable(2)" style="cursor:pointer;">Discount (%)</th>
-                                <th onclick="sortTable(3)" style="cursor:pointer;">Is active</th>
+                                <th onclick="sortTable(3)" style="cursor:pointer;">Active</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -24,7 +24,14 @@
                                 <td>{{ $offer->partner->name }}</td>
                                 <td>{{ $offer->amount }}</td>
                                 <td>{{ $offer->discount_percentage }}</td>
-                                <td>{{ $offer->active ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    @if ($offer->active)
+                                        <img src="{{ asset('images/activated.png') }}" alt="Active" width="20px">
+                                    @else
+                                        <img src="{{ asset('images/not-activated.png') }}" alt="Active" width="20px">
+                                        
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($offer->active)
                                         <form action="/admin/toggle/offer/{{ $offer->id }}" method="POST"
@@ -80,13 +87,12 @@
             <h2 class="mb-3">Partners</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table transakcije-tabela table-hover">
                         <thead>
                             <tr>
                                 <th onclick="sortTable(0)" style="cursor:pointer;">Partner</th>
                                 <th onclick="sortTable(1)" style="cursor:pointer;">Email</th>
                                 <th onclick="sortTable(2)" style="cursor:pointer;">Domain</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,9 +102,6 @@
                                 <td>{{ $partner->name }}</td>
                                 <td>{{ $partner->email }}</td>
                                 <td>{{ $partner->domain }}</td>
-                                <td>
-
-                                </td>
                             </tr>
                             @endforeach
                             </tr>
@@ -133,7 +136,7 @@
             <h2 class="mb-3">Referral Codes</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
-                    <table class="table table-bordered table-hover">
+                    <table class="table transakcije-tabela table-hover">
                         <thead>
                             <tr>
                                 <th onclick="sortTable(0)" style="cursor:pointer;">User</th>
@@ -150,7 +153,13 @@
                                 <td>{{ $referralCode->user->name }}</td>
                                 <td>{{ $referralCode->code }}</td>
                                 <td>{{ $referralCode->offer_id }}</td>
-                                <td>{{ $referralCode->active ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    @if ($referralCode->active)
+                                        <img src="{{ asset('images/activated.png') }}" alt="Active" width="20px">
+                                    @else
+                                        <img src="{{ asset('images/not-activated.png') }}" alt="Active" width="20px">
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($referralCode->active)
                                         <form action="/admin/toggle/referral_code/{{ $referralCode->id }}" method="POST"
