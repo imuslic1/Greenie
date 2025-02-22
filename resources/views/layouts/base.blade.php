@@ -1,3 +1,7 @@
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+@endpush
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,51 +14,50 @@
 </head>
 
 <body>
-    <header class="main-header mx-auto" style="max-width: 1048px;">
-        <div class="container-fluid">
-
-            <div class="d-flex justify-content-start pb-1" style="gap:30px">
-
-                <h2 class="align-self-center">Greenie</h2>
-
-                <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="img-fluid" style="max-width: 50px;">
-
-            </div>
-
-
-            <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-                <div class="collapse navbar-collapse" id="navbarNav">
+    <header class="main-header">
+        <div class="container-fluid px-0 justify-content-center">
+            <nav class="navbar navbar-expand-md" style="background-color: #94D4AE">
+                <div class="collapse navbar-collapse justify-content-between">
+                    <a class="navbar-brand align-items-center d-flex fs-3" href="http://localhost:8000/home" style="color: #1E555C; align-items: center;">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="mx-2" style="max-width: 60px;">
+                        Greenie
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse text-nowrap justify-content-center" id="navbarNav">
                     {{-- @auth     --}}
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('home') }}">Home</a>
+                        <ul class="navbar-nav">
+                            <li class=" nav-item px-3">
+                                <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('home') }}">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">My Account</a>
+                            <li class="nav-item px-3">
+                                <a class="underline-hover nav-link text-uppercase fs-5" href="#">My Account</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="{{ route('leaderboards.index') }}">Leaderboards</a>
+                            <li class="nav-item px-3">
+                                <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('leaderboards.index') }}">Leaderboards</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Contact Us</a>
+                            <li class="nav-item px-3">
+                                <a class="underline-hover nav-link text-uppercase fs-5" href="#">Contact Us</a>
                             </li>
                         </ul>
                     {{-- @else --}}
                         <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->
+                </div>
+                <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Login</a>
+                            <li class="nav-item px-2">
+                                <a class="darken-hover nav-link" href="#">Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Register</a>
+                            <li class="nav-item px-2">
+                                <a class="darken-hover nav-link" href="#">Register</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="#">Logout</a>
+                            <li class="nav-item px-2">
+                                <a class="darken-hover nav-link" href="#">Logout</a>
                             </li>
                         </ul>
                     {{-- @endauth --}}
                 </div>
             </nav>
+        </div>
     </header>
 
     <main class="mb-3" style="min-height: 78vh;">
@@ -67,10 +70,10 @@
                 <div class="col-md-12 text-center">
                     <nav>
                         <ul class="nav justify-content-center">
-                            <li class="nav-item">
+                            <li class="nav-item px-4">
                                 <a class="nav-link text-light" href="#">About</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item px-4">
                                 <a class="nav-link text-light" href="#">Contact</a>
                             </li>
                         </ul>
