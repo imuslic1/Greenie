@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class RefferalCode extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'code',
+        'offer_id',
+        'user_id',
+        'active'        
+    ];
 
     public function offer()
     {

@@ -50,7 +50,7 @@
 
             <div class="col-3">
                 <h3>Add Offer</h3>
-                <form action="/admin/add-offer" class="mb-4" method="POST">
+                <form action="/admin/add/offer" class="mb-4" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="partner_id" class="form-label">Partner:</label>
@@ -109,25 +109,22 @@
 
             <div class="col-3">
                 <h3>Add Partner</h3>
-                <form action="#" class="mb-4">
+                <form action="/admin/add/partner" class="mb-4" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="partner_id" class="form-label">Partner:</label>
-                        <select id="partner_id" name="partner_id" class="form-control" required>
-                            <option value="1">Partner 1</option>
-                            <option value="2">Partner 2</option>
-                            <option value="3">Partner 3</option>
-                        </select>
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="amount" class="form-label">Amount:</label>
-                        <input type="number" id="amount" name="amount" class="form-control" required>
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="discount" class="form-label">Discount:</label>
-                        <input type="text" id="discount" name="discount" class="form-control" required>
+                        <label for="domain" class="form-label">Domain:</label>
+                        <input type="text" id="domain" name="domain" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Offer</button>
+                    <button type="submit" class="btn btn-primary">Add Partner</button>
+                </form>
                 </form>
             </div>
         </div>
@@ -175,30 +172,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <h3>Add Referral Code</h3>
-                <form action="#" class="mb-4">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="partner_id" class="form-label">Partner:</label>
-                        <select id="partner_id" name="partner_id" class="form-control" required>
-                            <option value="1">Partner 1</option>
-                            <option value="2">Partner 2</option>
-                            <option value="3">Partner 3</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="amount" class="form-label">Amount:</label>
-                        <input type="number" id="amount" name="amount" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="discount" class="form-label">Discount:</label>
-                        <input type="text" id="discount" name="discount" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add Offer</button>
-                </form>
             </div>
         </div>
 

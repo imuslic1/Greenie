@@ -10,6 +10,8 @@ use App\Models\RefferalCode;
 use App\Repositories\OfferRepository;
 use App\Repositories\PartnerRepository;
 use App\Repositories\ReferralCodeRepository;
+use App\Services\SecretKeyService;
+use App\Services\SlugService;
 use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
@@ -17,12 +19,16 @@ class AdminController extends Controller
     private $offerRepository;
     private $partnerRepository;
     private $referralCodeRepository;
+    private $slugService;
+    private $secretKeyService;
 
-    public function __construct(OfferRepository $offerRepository, PartnerRepository $partnerRepository, ReferralCodeRepository $referralCodeRepository)
+    public function __construct(OfferRepository $offerRepository, PartnerRepository $partnerRepository, ReferralCodeRepository $referralCodeRepository, SlugService $slugService, SecretKeyService $secretKeyService)
     {
         $this->offerRepository = $offerRepository;
         $this->partnerRepository = $partnerRepository;
         $this->referralCodeRepository = $referralCodeRepository;
+        $this->slugService = $slugService;
+        $this->secretKeyService = $secretKeyService;
     }
 
     public function index()
@@ -68,10 +74,27 @@ class AdminController extends Controller
             'discount_percentage' => 'required|numeric',
         ]);
 
-        Log::info('Adding offer', $validatedData);
+        Log::info('Validated Data:' . $validatedData);
 
-        $offer = $this->offerRepository->add($validatedData);
+        $offer = $this->offerRepository->addOffer($validatedData);
 
         return redirect()->route('admin.index')->with('success', 'Offer added successfully');
+    }
+
+    public function addPartner(Request $request)
+    {
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'domain' => 'nullable',
+        ]);
+
+        $slug = $this->slugService->getOriginalSlug($request->name, $this->partnerRepository);
+        $secretKey = $this->secretKeyService->generateSecretKey();
+
+        $partner = $this->partnerRepository->addPartner($validatedData, $slug, $secretKey);
+
+        return redirect()->route('admin.index')->with('success', 'Partner added successfully');
     }
 }

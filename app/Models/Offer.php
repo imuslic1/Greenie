@@ -9,6 +9,13 @@ class Offer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'partner_id',
+        'amount',
+        'discount_percentage',
+        'active'        
+    ];
+
     public function refferalCodes()
     {
         return $this->hasMany(RefferalCode::class);

@@ -8,12 +8,12 @@ use App\Models\Offer;
 
 class OfferRepository
 {
-    public function add($data)
+    public function addOffer($data)
     {
         $offer = new Offer();
-        $offer->title = $data['title'];
-        $offer->description = $data['description'];
-        $offer->price = $data['price'];
+        $offer->partner_id = $data['partner_id'];
+        $offer->amount = $data['amount'];
+        $offer->discount_percentage = $data['discount_percentage'];
         $offer->save();
 
         return $offer;

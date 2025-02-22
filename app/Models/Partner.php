@@ -8,7 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Partner extends Model
 {
     use HasFactory;
-    
+
+    protected $fillable = [
+        "name",
+        "email",
+        "domain",
+        "slug",
+        "secret_key",
+        "logo"
+    ];
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

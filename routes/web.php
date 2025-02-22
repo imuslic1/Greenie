@@ -27,4 +27,6 @@ Route::post('/admin/toggle/offer/{offer_id}', [AdminController::class, 'toggleOf
 Route::post('/admin/toggle/referral_code/{refferalCode_id}', [AdminController::class, 'toggleReferralCodeStatus'])->name('admin.toggleReferralCodeStatus');
 
 
-Route::post('/admin/add-offer', [AdminController::class, 'addOffer'])->name('admin.addOffer');
+Route::post('/admin/add/offer', [AdminController::class, 'addOffer'])->name('admin.addOffer');
+
+Route::post('/admin/add/partner', [AdminController::class, 'addPartner'])->name('admin.addPartner');
