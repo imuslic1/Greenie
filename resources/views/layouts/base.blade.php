@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header class="main-header">
+    <header class="main-header mx-auto" style="max-width: 1048px;">
         <div class="container-fluid">
 
             <div class="d-flex justify-content-start pb-1" style="gap:30px">
@@ -38,12 +38,16 @@
                             <a class="nav-link text-light" href="#">Contact Us</a>
                         </li>
                     </ul>
+                    <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Logout</a>
                         </li>
                     </ul>
                 </div>
