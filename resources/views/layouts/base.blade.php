@@ -76,7 +76,7 @@
         @yield('content')
     </main>
 
-    <footer class="main-footer bg-dark text-light py-3 mx-auto" style="max-width: 1048px;">
+    <footer class="main-footer text-light py-3 mx-auto" style="background-color: #112F33">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
