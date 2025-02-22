@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
+    public function referralCodes()
+    {
+        return $this->hasMany(RefferalCode::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
