@@ -13,4 +13,9 @@ class Partner extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
 }

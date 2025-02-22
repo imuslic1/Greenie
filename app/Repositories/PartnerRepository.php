@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Connection;
 use App\Models\Partner;
 
 class PartnerRepository
@@ -11,5 +10,11 @@ class PartnerRepository
         $partner = Partner::where('secret_key', $secretKey)->first();
 
         return $partner;
+    }
+
+    public function getAllPartners() {
+        $partners = Partner::all();
+
+        return $partners;
     }
 }

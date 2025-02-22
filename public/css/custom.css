@@ -1,0 +1,17 @@
+.list-group-item img {
+    height: 100%;
+    max-height: 30px;
+    width: auto;
+}
+
+.gold-bg {
+    background-color: #70cc9d ;
+}
+
+.silver-bg {
+    background-color: #93dbac;
+}
+
+.bronze-bg {
+    background-color: #c5e8d1;
+}
