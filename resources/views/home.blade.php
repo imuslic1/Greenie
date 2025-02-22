@@ -67,7 +67,7 @@
                                 <a href="/partner/{{ $partner->id }}" class="btn btn-primary">View Offers</a>
 
                             @else
-                                <p class="card-text">Unfortunately there are no offers available at the moment.</p>
+                                <p class="card-text">Unfortunately there are no offers available at the moment. Check back later</p>
                             @endif
                         </div>
                     </div>

@@ -14,7 +14,7 @@
             </div>
 
 
-            <h1 class="my-5 text-center" style="color: #112F33">Register</h2>
+            <h1 class="my-5 text-center" style="color: #1E555C">Register</h2>
 
                 <div class="card mx-auto" style="width: 700px">
                     
@@ -24,7 +24,7 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end" style="color: #1E555C">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -41,7 +41,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-end" style="color: #1E555C">{{ __('Email Address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -58,7 +58,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Employee?') }}</label>
+                                    class="col-md-4 col-form-label text-md-end" style="color: #1E555C">{{ __('Employee?') }}</label>
                                 <div class="col-md-6">
                                     <select name="company_id" class="form-control">
                                         <option selected disabled>Select your company</option>
@@ -76,7 +76,7 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-end" style="color: #1E555C">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -93,7 +93,7 @@
 
                             <div class="row mb-3">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-end" style="color: #1E555C">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
