@@ -24,37 +24,49 @@
                     </a>
                 </div>
                 <div class="collapse navbar-collapse text-nowrap justify-content-center" id="navbarNav">
-                    {{-- @auth     --}}
-                        <ul class="navbar-nav">
-                            <li class=" nav-item px-3">
-                                <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('home') }}">Home</a>
-                            </li>
+                       
+                    <ul class="navbar-nav">
+                        <li class=" nav-item px-3">
+                            <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('home') }}">Home</a>
+                        </li>
+                        @auth
                             <li class="nav-item px-3">
                                 <a class="underline-hover nav-link text-uppercase fs-5" href="#">My Account</a>
                             </li>
+
                             <li class="nav-item px-3">
                                 <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('leaderboards.index') }}">Leaderboards</a>
                             </li>
-                            <li class="nav-item px-3">
-                                <a class="underline-hover nav-link text-uppercase fs-5" href="#">Contact Us</a>
-                            </li>
-                        </ul>
-                    {{-- @else --}}
+                        @endauth
+                        <li class="nav-item px-3">
+                            <a class="underline-hover nav-link text-uppercase fs-5" href="#">Contact Us</a>
+                        </li>
+                    </ul>
                         <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
+                    <ul class="navbar-nav">
+                        @guest
                             <li class="nav-item px-2">
-                                <a class="darken-hover nav-link" href="#">Login</a>
+                                <a class="darken-hover nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                             <li class="nav-item px-2">
-                                <a class="darken-hover nav-link" href="#">Register</a>
+                                <a class="darken-hover nav-link" href="{{ route('register') }}">Register</a>
                             </li>
+                        @else
                             <li class="nav-item px-2">
-                                <a class="darken-hover nav-link" href="#">Logout</a>
+                                <form method="POST" class="main-header_logout" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="darken-hover nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                this.closest('form').submit(); " role="button">
+                                        <i class="fas fa-sign-out-alt"></i>
+                        
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
                             </li>
-                        </ul>
-                    {{-- @endauth --}}
+                        @endguest
+                    </ul>
                 </div>
             </nav>
         </div>

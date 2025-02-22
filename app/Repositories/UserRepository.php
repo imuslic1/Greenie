@@ -42,4 +42,12 @@ class UserRepository
             ->take(10)
             ->get();
     }
+
+    public function addUser($name, $email, $password) {
+        return User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt($password),
+        ]);
+    }
 }

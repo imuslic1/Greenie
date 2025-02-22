@@ -11,6 +11,7 @@ class LoginController extends Controller
 {
     public function index()
     {
+        // $this->middleware(['guest']);
         return view('auth.login');
     }
 
