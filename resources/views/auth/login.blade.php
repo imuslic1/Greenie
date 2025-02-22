@@ -4,12 +4,10 @@
 @endpush
 @section('content')
 
-
-
     <div class="bg-canvas justify-content-center" style="padding-top: 100px; min-height: 100vh;">
         <h1 class="mt-5 text-center" style="color: #112F33">Login</h2>
         @if (session('status'))
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mx-auto" style="width: 300px;">
                     {{ session('status') }}
             </div>
         @endif

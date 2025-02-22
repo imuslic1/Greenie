@@ -1,13 +1,25 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
 
-                    <div class="card-body">
+<div class="bg-canvas justify-content-center" style="padding-top: 100px; min-height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                @if (session('status'))
+                <div class="alert alert-danger mx-auto" style="width: 400px;">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+
+
+            <h1 class="my-5 text-center" style="color: #112F33">Register</h2>
+
+                <div class="card mx-auto" style="width: 700px">
+                    
+
+                    <div class="card-body my-3">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -91,16 +103,16 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn dugme">
                                         {{ __('Register') }}
                                     </button>
-                                    <a href="{{ route('login') }}" class="btn btn-link">Already have an account?</a>
+                                    <a href="{{ route('login') }}" class="btn darken-hover">Already have an account?</a>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
+</div>
+    
 @endsection
