@@ -41,7 +41,7 @@
                             </li>
                         @endauth
                         <li class="nav-item px-3">
-                            <a class="underline-hover nav-link text-uppercase fs-5" href="#">Contact Us</a>
+                            <a class="underline-hover nav-link text-uppercase fs-5" href="/contact">Contact Us</a>
                         </li>
                     </ul>
                         <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->

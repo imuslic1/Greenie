@@ -31,4 +31,9 @@ class HomeController extends Controller
         }
         return view('home', compact('partners'));
     }
+
+    public function contact()
+    {
+        return view('contact-us');
+    }
 }
