@@ -31,7 +31,7 @@
                         </li>
                         @auth
                             <li class="nav-item px-3">
-                                <a class="underline-hover nav-link text-uppercase fs-5" href="#">My Account</a>
+                                <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('users.index', ['user' => Auth::user()->slug]) }}">My Account</a>
                             </li>
 
                             <li class="nav-item px-3">
