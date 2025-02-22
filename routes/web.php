@@ -20,6 +20,11 @@ Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('lea
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
-// Add the new route for OfferController
-Route::get('/admin', [AdminController::class, 'index'])->name('offers.index');
+Route::post('/admin/toggle/offer/{offer_id}', [AdminController::class, 'toggleOfferStatus'])->name('admin.toggleOfferStatus');
+
+Route::post('/admin/toggle/referral_code/{refferalCode_id}', [AdminController::class, 'toggleReferralCodeStatus'])->name('admin.toggleReferralCodeStatus');
+
+
+Route::post('/admin/add-offer', [AdminController::class, 'addOffer'])->name('admin.addOffer');

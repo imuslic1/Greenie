@@ -13,4 +13,9 @@ class Offer extends Model
     {
         return $this->hasMany(RefferalCode::class);
     }
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
 }
