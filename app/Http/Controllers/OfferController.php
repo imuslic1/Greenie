@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Offer;
+use App\Repositories\ReferralCodeRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class OfferController extends Controller
 {
+    private $referralCodeRepository;
+
+    public function __construct(ReferralCodeRepository $referralCodeRepository)
+    {
+        $this->referralCodeRepository = $referralCodeRepository;
+    }
+
     public function index(Offer $offer) {
         return view('offers.index', compact('offer'));
     }
@@ -16,12 +25,13 @@ class OfferController extends Controller
         $user = $request->user();
         $partner = $offer->partner;
 
-        $user->offers()->attach($offer->id, [
-            'partner_id' => $partner->id,
-            'status' => 'pending',
-        ]);
+        $code = Str::upper(Str::random(10));
+
+        while ($this->referralCodeRepository->checkIfCodeExists($code)) {
+            $code = Str::upper(Str::random(10));
+        }
+        $referralCode = $this->referralCodeRepository->addReferralCode($user->id, $partner->id, $offer->id, $code);
 
         return redirect()->route('offers', $offer);
-
     }
 }
