@@ -17,15 +17,15 @@
                 <h2 class="text-center h-25">User stats</h2>
                 <div class="row g-2 h-75" style="border: 1px solid black;">
                     <div class="col text-center d-flex flex-column justify-content-center">
-                        <h3>123</h3>
+                        <h2>123</h2>
                         <p>Total CO2 emission saved</p>
                     </div>
                     <div class="col text-center d-flex flex-column justify-content-center">
-                        <h3>11</h3>
+                        <h2>11</h2>
                         <p>Current streak</p>
                     </div>
                     <div class="col text-center d-flex flex-column justify-content-center">
-                        <h3>17</h3>
+                        <h2>17</h2>
                         <p>Longest streak</p>
                     </div>
                 </div>
