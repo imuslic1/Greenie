@@ -28,4 +28,13 @@ class TransactionRepository
 
         return $amount;
     }
+
+    public function getTopTenUsers() {
+        return Transaction::select('user_id')
+            ->selectRaw('SUM(amount) as total_amount')
+            ->groupBy('user_id')
+            ->orderBy('total_amount', 'desc')
+            ->take(10)
+            ->get();
+    }
 }

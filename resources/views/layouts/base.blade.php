@@ -15,7 +15,7 @@
 
             <div class="d-flex justify-content-start pb-1" style="gap:30px">
 
-                <h2 class="align-self-center">Naziv</h2>
+                <h2 class="align-self-center">Greenie</h2>
 
                 <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="img-fluid" style="max-width: 50px;">
 
@@ -24,32 +24,35 @@
 
             <nav class="navbar navbar-expand-md navbar-dark bg-primary">
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Leaderboards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Contact Us</a>
-                        </li>
-                    </ul>
-                    <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Logout</a>
-                        </li>
-                    </ul>
+                    {{-- @auth     --}}
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{{ route('leaderboards.index') }}">Leaderboards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    {{-- @else --}}
+                        <!-- STA AKO JE USER PRIJAVLJEN A STA AKO NIJE-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    {{-- @endauth --}}
                 </div>
             </nav>
     </header>
@@ -58,11 +61,10 @@
         @yield('content')
     </main>
 
-    <footer class="main-footer bg-dark text-light py-3 mt-4 fixed-bottom">
+    <footer class="main-footer bg-dark text-light py-3 mt-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3>Footer</h3>
                     <nav>
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
