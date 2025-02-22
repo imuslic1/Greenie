@@ -3,6 +3,7 @@
 use App\Http\Controllers\LeaderboardsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,7 @@ Route::get('/account', function () {
 Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+// Add the new route for OfferController
+Route::get('/admin', [AdminController::class, 'index'])->name('offers.index');
