@@ -7,7 +7,7 @@
                 <h4 class="text-center">Use eco-friendly services, earn points, and unlock exclusive discounts.</h4>
 
                 <div class="text-center pt-5">
-                    <a href="#" class="btn btn-success btn-lg" style="font-size: 1.7rem; padding: 1rem 2rem;">Start
+                    <a href="/register" class="btn btn-success btn-lg" style="font-size: 1.7rem; padding: 1rem 2rem;">Start
                         earning now!</a> <!-- Add route to the button -->
                 </div>
 
