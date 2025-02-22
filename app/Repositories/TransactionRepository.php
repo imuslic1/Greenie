@@ -28,4 +28,14 @@ class TransactionRepository
 
         return $amount;
     }
+
+    public function addTransaction($userId, $partnerId, $amount) {
+        $transaction = new Transaction();
+        $transaction->user_id = $userId;
+        $transaction->partner_id = $partnerId;
+        $transaction->amount = $amount;
+        $transaction->save();
+
+        return $transaction;
+    }
 }
