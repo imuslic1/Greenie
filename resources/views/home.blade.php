@@ -60,18 +60,12 @@
                         @endif
                         <div class="card-body">
                             <h5 class="card-title">{{ $partner->name }}</h5>
-                            <p class="card-text">partners for {{ $partner->created_at->diffForHumans(null, true) }}</p>
+                            <p class="card-text">Partners for {{ $partner->created_at->diffForHumans(null, true) }}</p>
                             @if ($partner->openOffers)
                                 <h6 class="card-subtitle mb-2 text-muted">Currently Open Offers:</h6>
-                                <ul>
-                                    @foreach ($partner->offers as $offer)
-                                        @if ($offer->active)
-                                            <li>{{ 'For ' }}{{ $offer->amount }}
-                                                {{ \Illuminate\Support\Str::plural('token', $offer->amount) }}:
-                                                {{ 'You receive' }} {{ $offer->discount_percentage . '% off' }}</li>
-                                        @endif
-                                    @endforeach
-                                </ul>
+                               
+                                <a href="/partner/{{ $partner->id }}" class="btn btn-primary">View Offers</a>
+
                             @else
                                 <p class="card-text">Unfortunately there are no offers available at the moment.</p>
                             @endif
