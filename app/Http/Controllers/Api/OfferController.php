@@ -49,6 +49,7 @@ class OfferController extends Controller
         
         $offer = $referralCode->offer;
         $user = $this->userRepository->updateUserAmount($user, -$offer->amount);
+        $this->transactionRepository->addTransaction($user->id, $partner->id, -$offer->amount);
 
         return response()->json(['message' => 'Referral code used successfully']);
     }
