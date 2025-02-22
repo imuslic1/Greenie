@@ -20,7 +20,7 @@ class LeaderboardsController extends Controller
     {
         $topTenUsers = $this->userRepository->getTopTenUsers();
         $topTenCompanies = $this->userRepository->getTopTenCompanies();
-        
+        Log::info('Leaderboards page visited: '.$topTenUsers);
         return view('leaderboards', compact('topTenUsers', 'topTenCompanies'));
     }
 }
