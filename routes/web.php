@@ -20,8 +20,8 @@ Route::post('/connection/{connection}', [ConnectionController::class, 'store'])-
 
 Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');
 
-Route::get('/offers/{partner}', [OfferController::class, 'index'])->name('offers');
-Route::post('/offers/{offer}', [OfferController::class, 'store'])->name('offers');
+Route::get('/offers/{partner}', [OfferController::class, 'index'])->name('offers.index');
+Route::post('/offers/{offer}', [OfferController::class, 'store'])->name('offers.store');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);

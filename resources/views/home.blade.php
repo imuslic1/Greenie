@@ -69,7 +69,7 @@
                             @if ($partner->openOffers)
                                 <h6 class="card-subtitle mb-2 text-muted">Currently Open Offers:</h6>
                                
-                                <a href="/partner/{{ $partner->id }}" class="btn dugme">View Offers</a>
+                                <a href="{{ route('offers.index', ['partner'=> $partner]) }}" class="btn dugme">View Offers</a>
 
                             @else
                                 <p class="card-text">Unfortunately there are no offers available at the moment. Check back later</p>

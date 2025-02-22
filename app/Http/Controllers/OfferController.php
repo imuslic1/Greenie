@@ -19,7 +19,7 @@ class OfferController extends Controller
     }
 
     public function index(Partner $partner) {
-        return view('offers.index', compact('partner'));
+        return view('offers', compact('partner'));
     }
 
     public function store(Offer $offer, Request $request) {
