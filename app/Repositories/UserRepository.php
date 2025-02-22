@@ -15,7 +15,7 @@ class UserRepository
     }
 
     public function updateUserAmount($user, $amount) {
-        $user->amount += $amount;
+        $user->balance += $amount;
         $user->save();
 
         return $user;

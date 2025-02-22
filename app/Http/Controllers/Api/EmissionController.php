@@ -31,8 +31,8 @@ class EmissionController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $email = $request->email;
-        $emission = $request->emission;
+        $email = $request->get('email');
+        $emission = $request->get('emission');
         $user = $this->userRepository->getUserByEmail($email);
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);

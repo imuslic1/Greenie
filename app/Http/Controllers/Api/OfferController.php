@@ -35,16 +35,20 @@ class OfferController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $email = $request->email;
-        $referralCode = $request->referral_code;
+        $email = $request->get('email');
+        $referralCode = $request->get('referral_code');
         $user = $this->userRepository->getUserByEmail($email);
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
 
-        $referralCode = $this->referralCodeRepository->updateReferralCode($referralCode);
+        $referralCode = $this->referralCodeRepository->updateReferralCode($referralCode, $partner->id);
+        if (!$referralCode || $referralCode->offer->partner_id !== $partner->id) {
+            return response()->json(['error' => 'Referral code not available'], 404);
+        }
+        
         $offer = $referralCode->offer;
-        $user = $this->userRepository->updateUserAmount($user, $offer->amount);
+        $user = $this->userRepository->updateUserAmount($user, -$offer->amount);
 
         return response()->json(['message' => 'Referral code used successfully']);
     }
