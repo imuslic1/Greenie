@@ -3,30 +3,35 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="display-4 text-center "><strong>Earn Rewards for a Greener Future!</strong></h1>
-                <h4 class="text-center">Use eco-friendly services, earn points, and unlock exclusive discounts.</h4>
+                <h1 class="display-4 text-center"><strong style="color: #1E555C; font-weight: bold;">Earn Rewards for a Greener Future!</strong></h1>
+                <h4 class="text-center" style="color: #1E555C; opacity: 60%;">Use eco-friendly services, earn points, and unlock exclusive discounts.</h4>
 
                 <div class="text-center pt-5">
-                    <a href="/register" class="btn btn-success btn-lg" style="font-size: 1.7rem; padding: 1rem 2rem;">Start
+                    <a href="
+                        @if (Auth::check())
+                            {{ route('users.index', ['user' => Auth::user()->slug]) }}
+                        @else
+                            {{ route('register') }}
+                        @endif" class="btn btn-success btn-lg" style="font-size: 1.7rem; padding: 1rem 2rem;">Start
                         earning now!</a> <!-- Add route to the button -->
                 </div>
 
                 <div class="text-center pt-5">
-                    <h2>How it works:</h2>
+                    <h2 style="color: #1E555C">How it works:</h2>
                     <div class="row justify-content-center pt-4">
                         <div class="col-3">
-                            <h4 style="height: 7vh">1. Use eco-friendly services</h4>
+                            <h4 style="height: 7vh; color: #1E555C">1. Use eco-friendly services</h4>
                             <img src="{{ asset('images/eco-friendly-icon.png') }}" alt="Leaf Icon" class="img-fluid"
                                 style="max-width: 15vh;">
 
                         </div>
                         <div class="col-3">
-                            <h4 style="height: 7vh">2. Earn points for every service</h4>
+                            <h4 style="height: 7vh; color: #1E555C">2. Earn points for every service</h4>
                             <img src="{{ asset('images/earn-points-icon.png') }}" alt="Leaf Icon" class="img-fluid"
                                 style="max-width: 15vh;">
                         </div>
                         <div class="col-3">
-                            <h4 style="height: 7vh">3. Unlock exclusive discounts</h4>
+                            <h4 style="height: 7vh; color: #1E555C">3. Unlock exclusive discounts</h4>
                             <img src="{{ asset('images/exclusive-discount-icon.png') }}" alt="Leaf Icon" class="img-fluid"
                                 style="max-width: 15vh;">
 
@@ -64,7 +69,7 @@
                             @if ($partner->openOffers)
                                 <h6 class="card-subtitle mb-2 text-muted">Currently Open Offers:</h6>
                                
-                                <a href="/partner/{{ $partner->id }}" class="btn btn-primary">View Offers</a>
+                                <a href="/partner/{{ $partner->id }}" class="btn dugme">View Offers</a>
 
                             @else
                                 <p class="card-text">Unfortunately there are no offers available at the moment. Check back later</p>
