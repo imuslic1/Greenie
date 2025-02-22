@@ -4,14 +4,14 @@
     <div class="m-4 mx-auto" style="max-width: 1000px;">
 
         <div class="row">
-            <div class="col-auto bg-dark" style="min-width: 300px; min-height: 200px;">
+            <div class="col-auto bg-dark text-center" style="min-width: 300px; min-height: 200px;">
                 <div class="text-light">
 
                     <h2 class="pt-2">{{ $user->name }}</h2>
 
                     <p>{{ $user->email }}</p>
 
-                    <h4 class="pb-3 pt-2"> {{ $user->balance . ' tokens' }}</h4>
+                    <h3 class="pb-3 pt-4"> {{ $user->balance . ' tokens' }}</h3>
 
 
                 </div>
@@ -60,7 +60,9 @@
                             <tbody>
                                 @foreach ($connections as $connection)
                                     <tr>
-                                        <td><a href="/users/{{ $connection->slug }}">{{ $connection->name }}</a>
+                                        <td>
+                                            <a href="/users/{{ $connection->slug }}"
+                                                style="text-decoration: none;">{{ $connection->name }}</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -88,7 +90,7 @@
                         <tbody>
                             @foreach ($user->transactions as $transaction)
                                 <tr>
-                                    <td>{{ $transaction->partner->name }}</td>
+                                    <td>{{ $transaction->partner->name }}</td> <!-- Dodati link na stranicu partnera -->
                                     <td>{{ $transaction->amount }}</td>
                                     <td>{{ $transaction->updated_at }}</td>
                                 </tr>
