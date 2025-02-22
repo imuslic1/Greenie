@@ -33,11 +33,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function connections()
-    {
-        return $this->hasMany(Connection::class);
-    }
-
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

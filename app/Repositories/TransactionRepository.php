@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Transaction;
+
+class TransactionRepository
+{
+    public function getTodaysAmountByUserId($userId) {
+        $amount = Transaction::where('user_id', $userId)
+            ->whereDate('created_at', today())
+            ->sum('amount');
+        
+        return $amount;
+    }
+
+    public function getAllTransactionsByUserId($userId) {
+        $transactions = Transaction::where('user_id', $userId)
+            ->get();
+
+        return $transactions;
+    }
+
+    public function getTimedAmountByUserId($userId, $from, $to) {
+        $amount = Transaction::where('user_id', $userId)
+            ->whereBetween('created_at', [$from, $to])
+            ->sum('amount');
+
+        return $amount;
+    }
+}
