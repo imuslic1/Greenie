@@ -15,10 +15,33 @@
                 Select Option
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="{{ route('companies.index') }}">Companies</a></li>
-                <li><a class="dropdown-item" href="{{ route('users.index') }}">Users</a></li>
+                <li><a class="dropdown-item" href="{{ route('companies.index') }}">Companies</a></li> 	<!--DODATI ACTUAL PATH DO OVOGA, POPRAVITI companies.index-->
+                <li><a class="dropdown-item" href="{{ route('users.index') }}">Users</a></li>			<!--DODATI ACTUAL PATH DO OVOGA, POPRAVITI users.index-->
             </ul>
         </div>
+        <ol class="list-group list-group-numbered mt-5">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Subheading</div>
+                Content for list item
+              </div>
+              <span class="badge text-bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Subheading</div>
+                Content for list item
+              </div>
+              <span class="badge text-bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Subheading</div>
+                Content for list item
+              </div>
+              <span class="badge text-bg-primary rounded-pill">14</span>
+            </li>
+          </ol>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
