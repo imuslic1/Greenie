@@ -3,7 +3,7 @@
     <div class="container mt-5">
         <h1 class="mb-4">Admin Dashboard</h1>
 
-        <div class="row">
+        <div class="row pb-4">
             <h2 class="mb-3">Offers</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
@@ -76,7 +76,7 @@
 
         </div>
 
-        <div class="row">
+        <div class="row pb-4">
             <h2 class="mb-3">Partners</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
@@ -132,7 +132,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row pb-4">
             <h2 class="mb-3">Referral Codes</h2>
             <div class="col-9">
                 <div style="max-height: 40vh; overflow-y: auto;">
