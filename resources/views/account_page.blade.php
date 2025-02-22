@@ -127,6 +127,35 @@
 
            
             @if (Auth::user()->id == $user->id)
+
+                <div class="col-auto border border-2 rounded p-3" style="min-width: 300px; min-height: 200px; margin-right: 15px;">
+                    <div>
+                        @if ($user->referralCodes->isEmpty())
+                            <h2 class="text-center h-25">Unused Referral Codes</h2>
+                            <p class="opacity-50">No referral codes to show.</p>
+                        @else
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th><h2 class="text-center h-25">Unused Referral Codes</h2></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($user->referralCodes as $referralCode)
+                                        <tr>
+                                            <td>
+                                                <a href="#"
+                                                    class="text-decoration-none darken-hover">
+                                                    {{ $referralCode->code }}</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endif
+                    </div>
+                </div>
+
                 @if ($user->transactions->isEmpty())
                     <div class="col border border-2 rounded p-3">
                         <h2 class="text-center h-25">Recent Transactions</h2>
