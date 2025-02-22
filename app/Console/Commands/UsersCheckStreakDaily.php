@@ -32,7 +32,6 @@ class UsersCheckStreakDaily extends Command
         $inactiveUsers = User::whereDate('last_streak_update', '!=', $yesterday)->get();
 
         foreach ($inactiveUsers as $user) {
-            Log::info("User {$user->id} was inactive on {$yesterday->toDateString()}.");
 
             $user->current_streak = 0;
             $user->save();
