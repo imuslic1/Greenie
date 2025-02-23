@@ -51,7 +51,8 @@ cp .env.example .env
 
 ### 5. Migracija baze podataka
 ```
-php artisan migrate --seed
+php artisan migrate
+php artisan db:seed
 ```
 
 #### Očekivana konfiguracija baze je:
@@ -68,7 +69,7 @@ Ukoliko ne postoji baza sa nazivom ```besthackathon_garbagecollectori``` na MySQ
 ```Would you like to create it? (yes/no)```.
 Upisati ```yes``` za kreiranje baze.
 
-### 6. Dodavanje admin računa (Opcionalno)
+### 6. Dodavanje admin računa
 Ukoliko želite kreirati admin račun, pokrenuti:
 ```
 php artisan admin:add
