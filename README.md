@@ -52,6 +52,12 @@ cp .env.example .env
 ### 5. Migracija baze podataka
 ```
 php artisan migrate
+php artisan db:seed --class=UserSeeder
+php artisan db:seed --class=PartnerSeeder
+php artisan db:seed --class=CompanySeeder
+php artisan db:seed --class=OfferSeeder
+php artisan db:seed --class=RefferalCodeSeeder
+php artisan db:seed --class=ConnectionSeeder
 ```
 
 #### Očekivana konfiguracija baze je:
