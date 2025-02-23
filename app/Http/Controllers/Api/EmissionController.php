@@ -39,6 +39,8 @@ class EmissionController extends Controller
         }
 
         $this->transactionRepository->addTransaction($user->id, $partner->id, $emission);
+        $this->userRepository->updateUserStreak($user->id);
+
         return response()->json(['message' => 'Emission updated successfully']);
     }
 }

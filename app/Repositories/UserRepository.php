@@ -60,6 +60,9 @@ class UserRepository
     public function updateUserStreak($user) {
         $user->current_streak += 1;
         $user->last_streak_update = today();
+        if ($user->current_streak > $user->longest_streak) {
+            $user->longest_streak = $user->current_streak;
+        }
         $user->save();
 
         return $user;
