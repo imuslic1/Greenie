@@ -33,7 +33,7 @@ class HomeController extends Controller
             $randomNumber = mt_rand(1, 7);
             $partner->logo = 'images/partner_logo/' . $randomNumber . '.png';
         }
-        return view('home', compact('partners', 'randomNumber'));
+        return view('home', compact('partners'));
     }
 
     public function contact()

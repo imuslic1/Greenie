@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container mt-5 mx-auto">
+    <div class="container mt-5 mx-auto mb-5">
 
         <div class="row border border-2 rounded p-3">
             <div class="col-auto text-center" style="min-width: 300px; min-height: 200px; color: #112F33;">
@@ -146,7 +146,7 @@
                                     @foreach ($user->referralCodes as $referralCode)
                                         <tr>
                                             <td>
-                                                <a href="/offers/{{ $referralCode->offer_id }}"
+                                                <a href="/offers/{{ $referralCode->offer->partner_id }}"
                                                     class="text-decoration-none darken-hover">
                                                     {{ $referralCode->code }}</a>
                                             </td>
@@ -160,12 +160,12 @@
 
                 @if ($user->transactions->isEmpty())
                     <div class="col border border-2 rounded p-3">
-                        <h2 class="text-center h-25">Recent Transactions</h2>
+                        <h2 class="text-center">Recent Transactions</h2>
                         <p class="opacity-50">No recent transactions.</p>
                     </div>      
                 @else   
                     <div class="col border border-2 rounded p-3">
-                        <h2 class="text-center h-25">Recent Transactions</h2>
+                        <h2 class="text-center">Recent Transactions</h2>
                         <table class="table transakcije-tabela">
                             <thead>
                                 <tr>

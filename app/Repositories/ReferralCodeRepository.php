@@ -14,10 +14,11 @@ class ReferralCodeRepository
             return null;
         }
 
-        $referralCode->active = false;
-        $referralCode->save();
+        $offer = $referralCode->offer;
 
-        return $referralCode;
+        $referralCode->delete();
+
+        return $offer;
     }
 
     public function checkIfCodeExists($code)

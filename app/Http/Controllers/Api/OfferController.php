@@ -42,12 +42,11 @@ class OfferController extends Controller
             return response()->json(['error' => 'User not found'], 404);
         }
 
-        $referralCode = $this->referralCodeRepository->updateReferralCode($referralCode, $partner->id);
-        if (!$referralCode || $referralCode->offer->partner_id !== $partner->id) {
+        $offer = $this->referralCodeRepository->updateReferralCode($referralCode, $partner->id);
+        if (!$offer) {
             return response()->json(['error' => 'Referral code not available'], 404);
         }
         
-        $offer = $referralCode->offer;
         $user = $this->userRepository->updateUserAmount($user, -$offer->amount);
         $this->transactionRepository->addTransaction($user->id, $partner->id, -$offer->amount);
 
