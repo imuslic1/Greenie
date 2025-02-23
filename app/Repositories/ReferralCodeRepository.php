@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\RefferalCode;
-use App\Models\Transaction;
 
 class ReferralCodeRepository
 {
@@ -17,6 +16,25 @@ class ReferralCodeRepository
 
         $referralCode->active = false;
         $referralCode->save();
+
+        return $referralCode;
+    }
+
+    public function checkIfCodeExists($code)
+    {
+        $referralCode = RefferalCode::where('code', $code)->exists();
+
+        return $referralCode;
+    }
+
+    public function addReferralCode($userId, $partnerId, $offerId, $code) {
+        $referralCode = RefferalCode::create([
+            'code' => $code,
+            'partner_id' => $partnerId,
+            'offer_id' => $offerId,
+            'active' => true,
+            'user_id' => $userId
+        ]);
 
         return $referralCode;
     }
