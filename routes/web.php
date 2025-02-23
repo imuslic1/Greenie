@@ -24,8 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/connection/{connection}', [ConnectionController::class, 'store'])->name('connection');
     Route::get('/leaderboards', [LeaderboardsController::class, 'index'])->name('leaderboards.index');   
     Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
-    Route::get('/offers/{partner}', [OfferController::class, 'index'])->name('offers');
-    Route::post('/offers/{offer}', [OfferController::class, 'store'])->name('offers');
+    Route::get('/offers/{partner}', [OfferController::class, 'index'])->name('offers.index');
+    Route::post('/offers/{offer}', [OfferController::class, 'store'])->name('offers.store');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

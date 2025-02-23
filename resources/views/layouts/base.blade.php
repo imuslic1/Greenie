@@ -32,6 +32,12 @@
                             <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
+                            @if (Auth::user()->utype == 'ADM')
+                                <li class="nav-item px-3">
+                                    <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('admin.index') }}">Dashboard</a>
+                                </li>
+                                
+                            @endif
                             <li class="nav-item px-3">
                                 <a class="underline-hover nav-link text-uppercase fs-5" href="{{ route('users.index', ['user' => Auth::user()->slug]) }}">My Account</a>
                             </li>
