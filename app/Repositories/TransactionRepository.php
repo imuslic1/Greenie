@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Log;
 
 class TransactionRepository
 {
@@ -24,8 +25,9 @@ class TransactionRepository
     public function getTimedAmountByUserId($userId, $from, $to) {
         $amount = Transaction::where('user_id', $userId)
             ->whereBetween('created_at', [$from, $to])
+            ->where('amount', '>', 0)
             ->sum('amount');
-
+        Log::info("User: $userId Amount: $amount");
         return $amount;
     }
 

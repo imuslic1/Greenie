@@ -56,4 +56,12 @@ class UserRepository
     public function checkIfSlugExists($slug) {
         return User::where('slug', $slug)->exists();
     }
+
+    public function updateUserStreak($user) {
+        $user->current_streak += 1;
+        $user->last_streak_update = today();
+        $user->save();
+
+        return $user;
+    }
 }

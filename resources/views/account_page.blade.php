@@ -42,9 +42,11 @@
                     </div>
 
                     <div class="col text-center d-flex flex-column justify-content-center">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{ asset('images/fire-icon.png') }}" alt="Lit!" style="max-width: 50px; padding: 3%">
-                        </div>
+                        @if ($user->current_streak > 0)
+                            <div class="d-flex justify-content-center">
+                                <img src="{{ asset('images/fire-icon.png') }}" alt="Lit!" style="max-width: 50px; padding: 3%">
+                            </div>
+                        @endif
                         <h2>{{ $user->current_streak }}</h2>
                         <p>Current streak</p>
                     </div>
