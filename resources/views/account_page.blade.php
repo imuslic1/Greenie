@@ -146,7 +146,7 @@
                                     @foreach ($user->referralCodes as $referralCode)
                                         <tr>
                                             <td>
-                                                <a href="#"
+                                                <a href="/offers/{{ $referralCode->offer_id }}"
                                                     class="text-decoration-none darken-hover">
                                                     {{ $referralCode->code }}</a>
                                             </td>

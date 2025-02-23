@@ -4,8 +4,8 @@
 @endpush
 @section('content')
 
-<div class="container mt-5" style="margin-bottom: 100px">
-    <h2 class="mb-5 text-center">LEADERBOARDS</h2>
+<div class="container mt-5" style="margin-bottom: 100px; color: #1E555C;" >
+    <p class="display-5 mb-5 text-center" style="color: #1E555C; font-weight: bold;">LEADERBOARDS</p>
     <div class="row">
         <div class="col md-6">
             <h3>Users</h3>
