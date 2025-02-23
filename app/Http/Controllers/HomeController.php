@@ -17,6 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        
         $partners = $this->partnerRepository->getAllPartners();
 
         foreach ($partners as $partner) {
@@ -26,10 +27,13 @@ class HomeController extends Controller
                     $hasActive = true;
                     break;
                 }
+
             }
             $partner->openOffers = $hasActive;
+            $randomNumber = mt_rand(1, 7);
+            $partner->logo = 'images/partner_logo/' . $randomNumber . '.png';
         }
-        return view('home', compact('partners'));
+        return view('home', compact('partners', 'randomNumber'));
     }
 
     public function contact()

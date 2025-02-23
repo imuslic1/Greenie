@@ -1,4 +1,7 @@
 @extends('layouts.base')
+@php
+    $logos = glob(public_path('images/partner_logo/*'));
+@endphp
 @section('content')
     <div class="container mt-5 mx-auto">
         <div class="row">
@@ -59,10 +62,8 @@
             @foreach ($partners as $partner)
                 <div class="col-md-4 p-1">
                     <div class="card h-100 card-background">
-                        @if ($partner->logo)
-                            <img src="{{ asset('storage/' . $partner->logo) }}" class="card-img-top"
-                                alt="{{ $partner->name }} Logo">
-                        @endif
+                            <img src="{{ $partner->logo }}" class="card-img-top"
+                                alt="{{ $partner->name }} Logo" style="max-height: 150px; object-fit: contain;">
                         <div class="card-body g-4" style="box-shadow: #1E555C 0px 0px 5px 0px;">
                             <h5 class="card-title" style="color: #1E555C">{{ $partner->name }}</h5>
                             <p class="card-text" style="opacity: 90%; color: #1E555C">Partners for {{ $partner->created_at->diffForHumans(null, true) }}</p>
