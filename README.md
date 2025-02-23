@@ -52,7 +52,6 @@ cp .env.example .env
 ### 5. Migracija baze podataka
 ```
 php artisan migrate
-php artisan db:seed
 ```
 
 #### Očekivana konfiguracija baze je:
