@@ -1,37 +1,59 @@
 @extends('layouts.base')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" style="color: #1E555C">
 
-        <div>
+        <div >
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <h4>Development Team</h4>
-                    <p><strong>Mirza Mahmutović</strong><br>
-                        Lead Developer<br>
-                        in/mirza-mahmutovic-882b72292</p>
-                    <p><strong>Ismar Muslić</strong><br>
-                        Frontend Developer<br>
-                        in/ismar-muslić-223991217</p>
-                    <p><strong>Haris Mališević</strong><br>
-                        Junior Developer<br>
-                        in/haris-malisevic</p>
-                </div>
-                <div class="col-md-6">
-                    <h4>Product Owner</h4>
-                    <p><strong>Emily Johnson</strong><br>
-                        Product Owner<br>
-                        emily.johnson@example.com</p>
+                    <h1 class="mt-5" style="color: #1E555C">Development Team</h2>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
+            <div class="accordion accordion-flush my-5">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Mirza Mahmutović
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body"> Developer<br>
+                        in/mirza-mahmutovic-882b72292</p></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Ismar Muslić
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body"> Developer<br>
+                        in/ismar-muslić-223991217</p>
+                   </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Haris Mališević
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body"> Developer<br>
+                        in/haris-malisevic</p></div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="mb-5 mx-0 d-flex justify-content-between">
+                <div>
                     <h2>Contact Us</h2>
                     <form action="/contact" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name" style="width: 400px" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
@@ -41,9 +63,11 @@
                             <label for="message">Message</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button type="submit" class="btn dugme mt-3">Submit</button>
                     </form>
-
+                </div>
+                <div>
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo">
 
                 </div>
             </div>

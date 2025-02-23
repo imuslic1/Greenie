@@ -93,3 +93,20 @@
     background-position: center center;
     height: max-content;
 }
+
+.accordion-button:not(.collapsed) {
+    background-color: #1E555C;
+    color: white;
+    
+}
+
+.accordion-button{
+    box-shadow: none !important;
+}
+
+.accordion-header:not(.collapsed) {
+    background-color: #1E555C;
+    color: white;
+    box-shadow: none !important;
+}
+
