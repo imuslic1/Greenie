@@ -178,7 +178,13 @@
                                 @foreach ($user->transactions as $transaction)
                                     <tr>
                                         <td>{{ $transaction->partner->name }}</td> <!-- Dodati link na stranicu partnera -->
-                                        <td>{{ $transaction->amount }}</td>
+                                        <td>
+                                            <div class="col d-flex align-items-center justify-content-center gap-2">
+                                                <p class="fs-5" style="margin-bottom: 2px">{{ $transaction->amount }}</p>
+                                                <img src="{{ asset('images/coin-icon.png') }}" alt="Novčić!" style="max-width: 20px;">
+                                            </div>
+                                        
+                                        </td>
                                         <td>{{ $transaction->updated_at }}</td>
                                     </tr>
                                 @endforeach

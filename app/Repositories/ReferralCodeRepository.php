@@ -43,4 +43,13 @@ class ReferralCodeRepository
     {
         return RefferalCode::all();
     }
+
+    public function getReferralCodesByPartnerAndUser($partnerId, $userId)
+    {
+        return RefferalCode::where('user_id', $userId)
+                ->join('offers', 'offers.id', '=', 'refferal_codes.offer_id')
+                ->join('partners', 'partners.id', '=', 'offers.partner_id')
+                ->where('partners.id', $partnerId)
+                ->get();
+    }
 }
