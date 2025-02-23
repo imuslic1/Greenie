@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5 mx-auto">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="display-4 text-center"><strong style="color: #1E555C; font-weight: bold;">Earn Rewards for a Greener Future!</strong></h1>
@@ -52,9 +52,9 @@
     </div>
 
 
-    <div class="container mt-5" style="max-width: 1024px">
-        <div class="row">
-            <h1 class="display-4 text-center pb-4"><strong>Offers by our partners:</strong></h1>
+    <div class="container my-5 mx-auto px-4" style="color: #1E555C">
+        <div class="row g-4">
+            <h1 class="display-4 text-center pb-4" ><strong>Our Partners</strong></h1>
 
             @foreach ($partners as $partner)
                 <div class="col-md-4 p-1">
@@ -63,16 +63,13 @@
                             <img src="{{ asset('storage/' . $partner->logo) }}" class="card-img-top"
                                 alt="{{ $partner->name }} Logo">
                         @endif
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $partner->name }}</h5>
-                            <p class="card-text">Partners for {{ $partner->created_at->diffForHumans(null, true) }}</p>
+                        <div class="card-body g-4" style="box-shadow: #1E555C 0px 0px 5px 0px;">
+                            <h5 class="card-title" style="color: #1E555C">{{ $partner->name }}</h5>
+                            <p class="card-text" style="opacity: 90%; color: #1E555C">Partners for {{ $partner->created_at->diffForHumans(null, true) }}</p>
                             @if ($partner->openOffers)
-                                <h6 class="card-subtitle mb-2 text-muted">Currently Open Offers:</h6>
-                               
                                 <a href="{{ route('offers.index', ['partner'=> $partner]) }}" class="btn dugme">View Offers</a>
-
                             @else
-                                <p class="card-text">Unfortunately there are no offers available at the moment. Check back later</p>
+                                <p class="card-text" style="opacity: 50%; color: #1E555C">No offers available right now. Check back later!</p>
                             @endif
                         </div>
                     </div>
